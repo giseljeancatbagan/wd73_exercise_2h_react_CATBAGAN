@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import CheckOut from "./pages/CheckOut"
 import ProductList from "./pages/ProductList";
 import React, { useState } from "react";
+import { CartProvider } from "./components/contexts/CartContext";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+    <CartProvider>
     <BrowserRouter>
     <Navbar />
       <Routes>
@@ -19,6 +21,7 @@ function App() {
           <Route path="/checkout" element={<CheckOut selectedProducts={selectedProducts} />} /> 
       </Routes>
     </BrowserRouter>
+    </CartProvider>
     </>
   )
 }
