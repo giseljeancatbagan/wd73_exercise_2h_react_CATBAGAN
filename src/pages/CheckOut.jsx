@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 
 function CheckOut({ selectedProducts }) {
-    // Calculate the total order amount based on selected products
     const totalAmount = selectedProducts.reduce((total, product) => total + product.price, 0);
     useEffect(() => {
         document.title = 'CheckOut'
@@ -13,7 +12,6 @@ function CheckOut({ selectedProducts }) {
       <div className="row">
         <div className="col-md-6">
           <h2>Shipping Information</h2>
-          {/* Shipping information form */}
           <form>
             <div className="mb-3">
               <label htmlFor="fullName" className="form-label">
@@ -39,7 +37,6 @@ function CheckOut({ selectedProducts }) {
               </label>
               <input type="text" className="form-control" id="zipcode" />
             </div>
-            {/* Add more fields as needed */}
             <button type="submit" className="btn btn-primary">
               Continue to Payment
             </button>
