@@ -5,14 +5,15 @@ import CheckOut from "./pages/CheckOut"
 import ProductList from "./pages/ProductList";
 import React, { useState } from "react";
 import { CartProvider } from "./components/contexts/CartContext";
-
+import store from "./store/store";
 
 function App() {
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   return (
     <>
-    <CartProvider>
+    
+    <CartProvider store={store} >
     <BrowserRouter>
     <Navbar />
       <Routes>
@@ -22,6 +23,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </CartProvider>
+    
     </>
   )
 }
