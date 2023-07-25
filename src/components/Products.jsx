@@ -1,12 +1,5 @@
-import { useCartContext } from "./contexts/CartContext";
-
 function Products(props) {
   const { image, title, description, price, category } = props;
-  const { addToCart } = useCartContext();
-  
-  const handleAddToCart = () => {
-    addToCart(product);
-  }
     return (
         <>
     
@@ -20,7 +13,7 @@ function Products(props) {
           <li className="list-group-item">$ {price}</li>
           <li className="list-group-item">{category}</li>
         </ul>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        
       </div>
       
         </>
