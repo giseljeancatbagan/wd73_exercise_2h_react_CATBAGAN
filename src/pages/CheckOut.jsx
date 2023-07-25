@@ -1,14 +1,18 @@
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import CartCheckout from "../components/CartCheckout";
 
-function CheckOut({ selectedProducts }) {
-    const totalAmount = selectedProducts.reduce((total, product) => total + product.price, 0);
+function CheckOut() {
+  const selectedProducts = useSelector((state) => state.cartItems);
+
+  const totalAmount = selectedProducts.reduce((total, product) => total + product.price, 0);
+    
     useEffect(() => {
         document.title = 'CheckOut'
     })
     return (
         <>
        <div className="container">
-      <h1>Checkout</h1>
       <div className="row">
         <div className="col-md-6">
           <h2>Shipping Information</h2>
@@ -37,11 +41,12 @@ function CheckOut({ selectedProducts }) {
               </label>
               <input type="text" className="form-control" id="zipcode" />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Continue to Payment
-            </button>
           </form>
         </div>
+        <CartCheckout selectedProducts={selectedProducts} totalAmount={totalAmount} />
+        <button type="submit" className="btn btn-primary">
+              Continue to Payment
+            </button>
       </div>
     </div>
         </>

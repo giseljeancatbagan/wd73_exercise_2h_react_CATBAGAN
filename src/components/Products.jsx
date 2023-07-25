@@ -1,5 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartActions";
+
 function Products(props) {
   const { image, title, description, price, category } = props;
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const product = { title, description, price, category };
+    dispatch(addToCart(product));
+  }
     return (
         <>
     
@@ -13,6 +22,7 @@ function Products(props) {
           <li className="list-group-item">$ {price}</li>
           <li className="list-group-item">{category}</li>
         </ul>
+        <button onClick={handleAddToCart} className="btn btn-primary">Add to Cart</button>
         
       </div>
       

@@ -1,4 +1,4 @@
-function CartCheckout() {
+function CartCheckout({ selectedProducts, totalAmount }) {
     return (
         <>
         <div className="col-md-6">
@@ -17,3 +17,5 @@ function CartCheckout() {
         </>
     )
 }
+
+export default CartCheckout
